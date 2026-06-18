@@ -1,0 +1,497 @@
+[
+  {
+    "id": "fc9a36b5-9156-4931-b1df-8bd8d4a32b4c",
+    "name": "wewrewr",
+    "start_minutes": -788397513,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 0,
+    "created_at": "2026-06-18T23:26:35.551934+00:00"
+  },
+  {
+    "id": "f3cb47bf-110b-482f-be3d-f03188d4beb5",
+    "name": "Zephiel es condenada al olvido por Pholtus",
+    "start_minutes": -788312553,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 1,
+    "created_at": "2026-06-18T23:26:35.664434+00:00"
+  },
+  {
+    "id": "56885469-e946-4b08-9507-d6bd47012f02",
+    "name": "Nace Zephiel",
+    "start_minutes": 649546560,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 2,
+    "created_at": "2026-06-18T23:26:35.76195+00:00"
+  },
+  {
+    "id": "3ed09c4c-8194-4e5a-8813-d8c3bd855dfa",
+    "name": "Nace Elyndra",
+    "start_minutes": 731594880,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 3,
+    "created_at": "2026-06-18T23:26:35.946164+00:00"
+  },
+  {
+    "id": "e18481ba-803c-405b-9cfa-379146f5c6a8",
+    "name": "Elyndra se interesa por los poderes prohibidos mientras está recluida",
+    "start_minutes": 752631840,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 4,
+    "created_at": "2026-06-18T23:26:36.051499+00:00"
+  },
+  {
+    "id": "8bbdc78d-ce2b-421b-b3cd-583a1a12f1b8",
+    "name": "Nace Lissa",
+    "start_minutes": 756838429,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 5,
+    "created_at": "2026-06-18T23:26:36.180704+00:00"
+  },
+  {
+    "id": "e4d6f26c-a2e5-489b-9352-ce790cdf33a9",
+    "name": "Nace Naivara",
+    "start_minutes": 760255898,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 6,
+    "created_at": "2026-06-18T23:26:36.277954+00:00"
+  },
+  {
+    "id": "7205c976-6b83-4bcf-848c-4e11baaf5229",
+    "name": "Elyndra consigue huir de Menzoberranza e hizo el pacto con Velzhara",
+    "start_minutes": 763151040,
+    "color": "#0079CC",
+    "image_path": "hcu9rd38.png",
+    "sort_order": 7,
+    "created_at": "2026-06-18T23:26:37.023113+00:00"
+  },
+  {
+    "id": "6db7a951-c918-488b-9b56-10ae21260b7d",
+    "name": "Nace Tharic",
+    "start_minutes": 766327680,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 8,
+    "created_at": "2026-06-18T23:26:37.136641+00:00"
+  },
+  {
+    "id": "b9a63e86-e83c-445a-a93b-e701abcda015",
+    "name": "Nace Eldris",
+    "start_minutes": 766833469,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 9,
+    "created_at": "2026-06-18T23:26:37.24235+00:00"
+  },
+  {
+    "id": "1efd0eb3-d811-4765-a117-472f932a3924",
+    "name": "Nace Helios",
+    "start_minutes": 771041498,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 10,
+    "created_at": "2026-06-18T23:26:37.3438+00:00"
+  },
+  {
+    "id": "7a6e86bf-edba-40ff-b347-7c91537c44ea",
+    "name": "Tharic asesina a su padre",
+    "start_minutes": 771567447,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 11,
+    "created_at": "2026-06-18T23:26:37.537994+00:00"
+  },
+  {
+    "id": "95084f07-956c-422b-acd0-89075e8f7fa3",
+    "name": "Nace Lira",
+    "start_minutes": 772618996,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 12,
+    "created_at": "2026-06-18T23:26:37.636468+00:00"
+  },
+  {
+    "id": "04e62fa8-e7ed-4b20-bd19-d431a6d6f2be",
+    "name": "Eldris es aceptado en la Alta Torre de Hechicería de Puerta de Baldurs",
+    "start_minutes": 774722880,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 13,
+    "created_at": "2026-06-18T23:26:37.743986+00:00"
+  },
+  {
+    "id": "04dce19c-a9d0-4817-aacd-a3ee91ffd724",
+    "name": "Lissa derrota al Liche Manferic en Ankhapur. Los padres de Lira son asesinados por el liche",
+    "start_minutes": 775248480,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 14,
+    "created_at": "2026-06-18T23:26:37.835356+00:00"
+  },
+  {
+    "id": "9f40bbd5-aaa4-4f32-884c-2f34900bdd09",
+    "name": "Nace Cyro",
+    "start_minutes": 775482109,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 15,
+    "created_at": "2026-06-18T23:26:37.939899+00:00"
+  },
+  {
+    "id": "7917d03f-d44c-4e91-800f-865c66c81aee",
+    "name": "Nace Nerith",
+    "start_minutes": 775568858,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 16,
+    "created_at": "2026-06-18T23:26:38.0759+00:00"
+  },
+  {
+    "id": "3fdc66e6-e3d5-4665-825e-3a57468b6ebf",
+    "name": "Lira rescata a Azaira de un poblado en guerra",
+    "start_minutes": 780508800,
+    "color": "#0079CC",
+    "image_path": "agde0hu8.jpg",
+    "sort_order": 17,
+    "created_at": "2026-06-18T23:26:38.55659+00:00"
+  },
+  {
+    "id": "9381aa96-1e5b-4cac-b564-6c4ff4a6ee6f",
+    "name": "Eldris se convierte en profesor adjunto de la Alta Torre de Hechicería",
+    "start_minutes": 781034749,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 18,
+    "created_at": "2026-06-18T23:26:38.659536+00:00"
+  },
+  {
+    "id": "9a8701be-8b9f-4c5d-a1da-8f0eb78499d6",
+    "name": "Eldris se convierte en catedrático de la disciplina “Tejidos de la Realidad y manipulación de la conciencia\"",
+    "start_minutes": 783138240,
+    "color": "#0079CC",
+    "image_path": "ref7w4om.jpg",
+    "sort_order": 19,
+    "created_at": "2026-06-18T23:26:38.980644+00:00"
+  },
+  {
+    "id": "64984462-fe15-481f-bc3f-1eed4dd05758",
+    "name": "Eldris, Naivara, Tharic y Elyndra acaban con el comandante Veyrak del ejército de Gortash en el Trono de Hierro",
+    "start_minutes": 784234080,
+    "color": "#0079CC",
+    "image_path": "oa8sn4fa.png",
+    "sort_order": 20,
+    "created_at": "2026-06-18T23:26:39.678817+00:00"
+  },
+  {
+    "id": "47437146-08dc-4d33-8d9e-21abdfefa2a6",
+    "name": "La Absoluta es derrotada en manos de unos héroes",
+    "start_minutes": 784275840,
+    "color": "#0079CC",
+    "image_path": "d40hxiqt.jpg",
+    "sort_order": 21,
+    "created_at": "2026-06-18T23:26:40.003333+00:00"
+  },
+  {
+    "id": "faecde51-89ae-4515-8641-1282b54b897b",
+    "name": "Eldris, Naivara, Tharic y Elyndra detienen a Lord Cassian Dovenhart por conspiración. Consiguen su mansión y títulos como recompensa",
+    "start_minutes": 784320480,
+    "color": "#0079CC",
+    "image_path": "yxyk7txw.jpg",
+    "sort_order": 22,
+    "created_at": "2026-06-18T23:26:40.456968+00:00"
+  },
+  {
+    "id": "c7a40f0c-7ceb-4b75-94a4-957b351af717",
+    "name": "Eldris vende su parte de la mansión a Melvin",
+    "start_minutes": 785897280,
+    "color": "#0079CC",
+    "image_path": "csastbmb.png",
+    "sort_order": 23,
+    "created_at": "2026-06-18T23:26:41.010574+00:00"
+  },
+  {
+    "id": "5af0cfef-e84e-405b-b667-4009f07bc6a3",
+    "name": "Tharic, Elyndra y Naivara conocen a Lira y recuperan la \"Corona de la Canción Rota\"",
+    "start_minutes": 785940480,
+    "color": "#0079CC",
+    "image_path": "yozk324a.png",
+    "sort_order": 24,
+    "created_at": "2026-06-18T23:26:41.775147+00:00"
+  },
+  {
+    "id": "9068d1cd-04c1-421e-8df2-4ccde5409f6e",
+    "name": "Eldris desaparece tras una explosión en la Alta Torre de Hechicería",
+    "start_minutes": 786117600,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 25,
+    "created_at": "2026-06-18T23:26:41.885371+00:00"
+  },
+  {
+    "id": "d859eea5-3049-4926-9dc9-a4bb68e1823e",
+    "name": "Elyndra y Naivara se infiltran en la mansión Szarr",
+    "start_minutes": 786293280,
+    "color": "#0079CC",
+    "image_path": "dh5byuxp.png",
+    "sort_order": 26,
+    "created_at": "2026-06-18T23:26:42.364259+00:00"
+  },
+  {
+    "id": "84f002b3-015b-49b3-9045-ebd797f7a649",
+    "name": "Elyndra y Naivara viajan a Neverwinter para investigar la familia Szarr",
+    "start_minutes": 786379680,
+    "color": "#0079CC",
+    "image_path": "bl0xishr.jpg",
+    "sort_order": 27,
+    "created_at": "2026-06-18T23:26:42.790624+00:00"
+  },
+  {
+    "id": "6afd3331-6aec-4a69-82c3-e6d0642d6c04",
+    "name": "Vaelor hace un pacto con Glassya por escapar de Lolth",
+    "start_minutes": 787606560,
+    "color": "#0079CC",
+    "image_path": "z3feh7al.jpg",
+    "sort_order": 28,
+    "created_at": "2026-06-18T23:26:43.153764+00:00"
+  },
+  {
+    "id": "a186f633-a719-4505-8426-8e222174038c",
+    "name": "Zephiel es víctima del control mental de Vaerion",
+    "start_minutes": 787695840,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 29,
+    "created_at": "2026-06-18T23:26:43.325594+00:00"
+  },
+  {
+    "id": "703f5638-562b-4037-b203-04c383b6e49a",
+    "name": "Zephiel es condenada al olvido por Pholtus",
+    "start_minutes": 787956480,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 30,
+    "created_at": "2026-06-18T23:26:43.416738+00:00"
+  },
+  {
+    "id": "297f2fa8-27be-4bc4-a004-7921a94b331e",
+    "name": "Nerith sale de puerta de Baldurs en busca de su hermano",
+    "start_minutes": 788001120,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 31,
+    "created_at": "2026-06-18T23:26:43.511138+00:00"
+  },
+  {
+    "id": "1cb4b292-5411-494e-9bf1-51a176327e22",
+    "name": "Elaine, Tharic, Cyro y Nerith cogen una caravana en Gheldaneth rumbo Puerta de Baldurs ",
+    "start_minutes": 788132160,
+    "color": "#0079CC",
+    "image_path": "bc8fkjji.jpg",
+    "sort_order": 32,
+    "created_at": "2026-06-18T23:26:43.871684+00:00"
+  },
+  {
+    "id": "31ff2a97-4713-4486-9f48-575063109480",
+    "name": "El grupo llega a Yhep",
+    "start_minutes": 788189760,
+    "color": "#0079CC",
+    "image_path": "bf4v9zhv.jpg",
+    "sort_order": 33,
+    "created_at": "2026-06-18T23:26:44.235718+00:00"
+  },
+  {
+    "id": "d044e47d-b1ea-4166-9ebd-8e72fb4ef0b3",
+    "name": "El grupo cierra un portal de hielo en Dalelost",
+    "start_minutes": 788191200,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 34,
+    "created_at": "2026-06-18T23:26:44.358681+00:00"
+  },
+  {
+    "id": "7b1c285b-1181-48af-931c-36a641442393",
+    "name": "El grupo llega a Ankhapur, se cuelan en la fiesta de la Rosa Negra y conocen a Lira",
+    "start_minutes": 788194080,
+    "color": "#0079CC",
+    "image_path": "lvdjjptj.png",
+    "sort_order": 35,
+    "created_at": "2026-06-18T23:26:44.871942+00:00"
+  },
+  {
+    "id": "6fa2f99f-cc0f-4209-ac7f-32c52ea62aa7",
+    "name": "Cyro y Nerith cenan con la familia El Khamir. Thorvin se marcha con la caravana a las siguientes ciudades",
+    "start_minutes": 788195520,
+    "color": "#0079CC",
+    "image_path": "oe8jljl2.png",
+    "sort_order": 36,
+    "created_at": "2026-06-18T23:26:45.286535+00:00"
+  },
+  {
+    "id": "ff757233-461e-4e34-8ca6-5c8f62086aa6",
+    "name": "Tharic y Elaine entran al portal de viento y conocen Zepheria",
+    "start_minutes": 788196960,
+    "color": "#0079CC",
+    "image_path": "dm7lt5mm.jpg",
+    "sort_order": 37,
+    "created_at": "2026-06-18T23:26:45.644994+00:00"
+  },
+  {
+    "id": "e3f88282-b80b-4e65-85f1-4699573b3f6a",
+    "name": "Venus secuestra a Cyro para sacrificarlo al dios Bane",
+    "start_minutes": 788198400,
+    "color": "#0079CC",
+    "image_path": "a44rmoza.png",
+    "sort_order": 38,
+    "created_at": "2026-06-18T23:26:47.622355+00:00"
+  },
+  {
+    "id": "c8e1bacc-a11d-4f4b-8e44-3ed4222fcff3",
+    "name": "El grupo se infiltra en la mansión El Khamir y destruyen el catalizador. El portal de viento se cierra",
+    "start_minutes": 788199840,
+    "color": "#0079CC",
+    "image_path": "jronhlhv.png",
+    "sort_order": 39,
+    "created_at": "2026-06-18T23:26:48.05219+00:00"
+  },
+  {
+    "id": "95f96ec2-8750-4819-bfc2-e2d70e3d1264",
+    "name": "Lissa se reencuentra con Elaine, Greco le propone matrimonio a Nerith. Cyro, Nerith y Elaine se convierten en arpistas, Lira los acompaña. Thorvin avisa sobre un peligro en Riatavin",
+    "start_minutes": 788201280,
+    "color": "#0079CC",
+    "image_path": "cknu6ffh.png",
+    "sort_order": 40,
+    "created_at": "2026-06-18T23:26:48.575343+00:00"
+  },
+  {
+    "id": "06d94a33-aad4-4f64-bbe7-ff08db1bc51f",
+    "name": "Cyro se reencuentra con Rory",
+    "start_minutes": 788204160,
+    "color": "#0079CC",
+    "image_path": "oqu6baid.jpg",
+    "sort_order": 41,
+    "created_at": "2026-06-18T23:26:48.914376+00:00"
+  },
+  {
+    "id": "c7ffa94a-a14c-4799-8101-47b0bcfc6cc8",
+    "name": "El grupo llega a Riatavin. El grupo es masacrado por la sombra de Eldris",
+    "start_minutes": 788205600,
+    "color": "#0079CC",
+    "image_path": "f5tf4cfu.png",
+    "sort_order": 42,
+    "created_at": "2026-06-18T23:26:49.443553+00:00"
+  },
+  {
+    "id": "4e40854e-aa0a-4215-b7fb-812b46542ce6",
+    "name": "El grupo realiza una misión de escolta a la Biblioteca Edificante",
+    "start_minutes": 788207040,
+    "color": "#0079CC",
+    "image_path": "m99x9aes.png",
+    "sort_order": 43,
+    "created_at": "2026-06-18T23:26:49.972303+00:00"
+  },
+  {
+    "id": "921182d6-c368-4336-ab02-ad99d93b494e",
+    "name": "El grupo rescata la ardilla Kevin, familiar de Rory",
+    "start_minutes": 788208480,
+    "color": "#0079CC",
+    "image_path": "vckb4g55.png",
+    "sort_order": 44,
+    "created_at": "2026-06-18T23:26:50.536919+00:00"
+  },
+  {
+    "id": "db8fa214-496b-4852-a1a5-a3ad95bcb77b",
+    "name": "Ocurre el “Asalto a la Biblioteca Edificante” para detener a Eldris, el cual escapa",
+    "start_minutes": 788209920,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 45,
+    "created_at": "2026-06-18T23:26:50.66482+00:00"
+  },
+  {
+    "id": "794361b5-5ca0-4d82-9ea4-cbb43ed019ad",
+    "name": "El grupo viaja obligado a Pale por parte de Lissa",
+    "start_minutes": 788211360,
+    "color": "#0079CC",
+    "image_path": "kuqrerg2.png",
+    "sort_order": 46,
+    "created_at": "2026-06-18T23:26:51.182874+00:00"
+  },
+  {
+    "id": "43a44361-fccc-41c1-907e-c990a8ac2d0c",
+    "name": "El grupo se adentra al portal al Averno",
+    "start_minutes": 788212800,
+    "color": "#0079CC",
+    "image_path": "utptqar7.png",
+    "sort_order": 47,
+    "created_at": "2026-06-18T23:26:51.705712+00:00"
+  },
+  {
+    "id": "6cadf0d1-2870-4342-a04a-657a5d35e9fa",
+    "name": "Tharic realiza un pacto con Glassya. El grupo sale del averno",
+    "start_minutes": 788222880,
+    "color": "#0079CC",
+    "image_path": "h4mcqwoo.png",
+    "sort_order": 48,
+    "created_at": "2026-06-18T23:26:52.204867+00:00"
+  },
+  {
+    "id": "361cd5fd-4864-4227-b0ad-73a1c3b112ae",
+    "name": "El grupo se marcha de Pale con los hipogrifos",
+    "start_minutes": 788228640,
+    "color": "#0079CC",
+    "image_path": "uyq34q4l.png",
+    "sort_order": 49,
+    "created_at": "2026-06-18T23:26:52.574035+00:00"
+  },
+  {
+    "id": "700ef507-16f8-45ff-ad78-0575ce70e931",
+    "name": "El grupo llega a Ashabenford. Derrotan a los drow del bosque",
+    "start_minutes": 788231520,
+    "color": "#0079CC",
+    "image_path": "izzru2fx.png",
+    "sort_order": 50,
+    "created_at": "2026-06-18T23:26:53.064381+00:00"
+  },
+  {
+    "id": "894feb36-dbfb-4d0b-88cd-fc7443795f34",
+    "name": "Tharic se marcha solo con un hipogrifo. Lira se enfrenta al grupo. El grupo marcha a Luna Alta",
+    "start_minutes": 788232960,
+    "color": "#0079CC",
+    "image_path": "ayztjw4n.png",
+    "sort_order": 51,
+    "created_at": "2026-06-18T23:26:53.609428+00:00"
+  },
+  {
+    "id": "889cb087-5199-43ed-b789-d42d8ad47c6f",
+    "name": "Tharic recibe su primera misión de Glassya. El grupo llega a Luna Alta.",
+    "start_minutes": 788237280,
+    "color": "#0079CC",
+    "image_path": "sigipexo.png",
+    "sort_order": 52,
+    "created_at": "2026-06-18T23:26:54.097467+00:00"
+  },
+  {
+    "id": "35491c01-7d13-4242-9cb8-f2a0e294e72c",
+    "name": "El palacio real y gran parte del barrio noble de Luna Alta son destruidos por Tharic",
+    "start_minutes": 788238720,
+    "color": "#0079CC",
+    "image_path": null,
+    "sort_order": 53,
+    "created_at": "2026-06-18T23:26:54.308516+00:00"
+  },
+  {
+    "id": "2f2e409f-917d-498c-8008-b7b7e9b58b3c",
+    "name": "Juicio de Tharic",
+    "start_minutes": 788264640,
+    "color": "#0079CC",
+    "image_path": "zq69p5fc.png",
+    "sort_order": 54,
+    "created_at": "2026-06-18T23:26:54.847036+00:00"
+  }
+]
