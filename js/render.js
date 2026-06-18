@@ -2,6 +2,31 @@
 import { el, openDetail, CALENDAR_ICON } from "./lightbox.js";
 import { yearLabel, dateText, relativeLabel, minutesToYMD } from "./dates.js";
 
+// Ensure the scroll-to-top button is created only once, outside renderTimeline,
+// so repeated calls (e.g. window.__reload after every CRUD action) don't leak duplicates.
+let _toTopBtn = null;
+let _toTopContainer = null;
+
+function ensureToTop(container) {
+  if (!_toTopBtn) {
+    _toTopBtn = el(
+      "button",
+      "to-top",
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>'
+    );
+    _toTopBtn.setAttribute("aria-label", "Volver arriba");
+    document.body.appendChild(_toTopBtn);
+  }
+  // Re-wire scroll listener if the container changes (unlikely but safe)
+  if (_toTopContainer !== container) {
+    _toTopBtn.onclick = () => container.scrollTo({ top: 0, behavior: "smooth" });
+    container.addEventListener("scroll", function () {
+      _toTopBtn.classList.toggle("show", container.scrollTop > 600);
+    });
+    _toTopContainer = container;
+  }
+}
+
 function hexToRgb(hex) {
   hex = (hex || "#0079CC").replace("#", "");
   if (hex.length === 3) {
@@ -121,6 +146,15 @@ export function renderTimeline(container, events) {
     inner.appendChild(text);
     card.appendChild(inner);
 
+    // Edit-mode controls: pencil + trash (hidden unless body.edit-mode)
+    const tools = el("div", "card-tools edit-only");
+    tools.innerHTML = `<button class="t-edit" title="Editar">✎</button><button class="t-del" title="Borrar">🗑</button>`;
+    (function (event) {
+      tools.querySelector(".t-edit").addEventListener("click", (e) => { e.stopPropagation(); window.__openEventForm(event); });
+      tools.querySelector(".t-del").addEventListener("click", (e) => { e.stopPropagation(); window.__deleteEvent(event); });
+    })(ev);
+    card.appendChild(tools);
+
     row.appendChild(card);
     frag.appendChild(row);
 
@@ -143,18 +177,11 @@ export function renderTimeline(container, events) {
   end.appendChild(el("div", "", ""));
   container.appendChild(end);
 
-  // scroll-to-top button
-  const toTop = el(
-    "button",
-    "to-top",
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>'
-  );
-  toTop.setAttribute("aria-label", "Volver arriba");
-  document.body.appendChild(toTop);
-  toTop.addEventListener("click", function () {
-    container.scrollTo({ top: 0, behavior: "smooth" });
-  });
-  container.addEventListener("scroll", function () {
-    toTop.classList.toggle("show", container.scrollTop > 600);
-  });
+  // Floating "+" add button (edit-mode only)
+  const addBtn = el("button", "add-btn edit-only", "+");
+  addBtn.addEventListener("click", () => window.__openEventForm(null));
+  container.appendChild(addBtn);
+
+  // Scroll-to-top button — created once, never duplicated across reloads
+  ensureToTop(container);
 }
