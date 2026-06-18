@@ -25,6 +25,11 @@ test("yearLabel formats CE and BCE", () => {
   assert.equal(yearLabel(-1498), "1499 BCE");
 });
 
+test("dateText returns the formatted year for given minutes", () => {
+  assert.equal(dateText(775248480), "1475 CE");   // 1475-01-01
+  assert.equal(dateText(-788397513), "1499 BCE");  // BCE event
+});
+
 test("relativeLabel: years vs days vs none", () => {
   assert.equal(relativeLabel(null, 100), "");
   assert.equal(relativeLabel(774722880, 775248480), "1 year later"); // 1474-01-01 → 1475-01-01
