@@ -434,3 +434,14 @@ body {
   transition: background 0.15s ease;
 }
 .lb-close:hover { background: rgba(255, 255, 255, 0.22); }
+
+/* ---- Lock button + Login modal ---- */
+.lock-btn { opacity: .35; background: none; border: none; color: var(--muted); cursor: pointer; padding: 6px; }
+.lock-btn:hover { opacity: 1; }
+.login-modal { position: fixed; inset: 0; z-index: 1100; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.7); }
+.login-modal.open { display: flex; }
+.login-card { background: var(--canvas); border: 1px solid var(--border); border-radius: 14px; padding: 20px; width: min(92vw, 340px); display: flex; flex-direction: column; gap: 10px; }
+.login-card input { padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: #0c0a12; color: var(--fg); }
+.login-card .err { color: #f87171; font-size: 12px; min-height: 14px; }
+.edit-only { display: none; }
+body.edit-mode .edit-only { display: inline-flex; }
