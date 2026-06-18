@@ -2,7 +2,9 @@
 import { supabase } from "./supabaseClient.js";
 import { SUPABASE_URL, IMAGE_BUCKET } from "./config.js";
 import { renderTimeline } from "./render.js";
-import { initEditing } from "./edit.js";
+import { initEditing, setUploader } from "./edit.js";
+import { uploadResizedImage } from "./imageUpload.js";
+setUploader(uploadResizedImage);
 
 function imageUrl(path) {
   return path ? `${SUPABASE_URL}/storage/v1/object/public/${IMAGE_BUCKET}/${path}` : null;
