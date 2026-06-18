@@ -1,0 +1,24 @@
+# .github/workflows/keepalive-backup.yml
+name: Keep-alive & backup
+on:
+  schedule: [{ cron: "0 6 * * 1" }]   # Mondays 06:00 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Backup from Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: python3 scripts/backup.py
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add backup
+          git diff --cached --quiet || git commit -m "chore: weekly timeline backup"
+          git push
