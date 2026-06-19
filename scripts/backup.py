@@ -17,13 +17,14 @@ def get(path):
 def main():
     os.makedirs(os.path.join(OUT, "images"), exist_ok=True)
     rows = json.loads(get("/rest/v1/events?select=*&order=start_minutes.asc"))
-    json.dump(rows, open(os.path.join(OUT, "events.json"), "w", encoding="utf-8"),
-              ensure_ascii=False, indent=2)
+    with open(os.path.join(OUT, "events.json"), "w", encoding="utf-8") as f:
+        json.dump(rows, f, ensure_ascii=False, indent=2)
     for r in rows:
         p = r.get("image_path")
         if not p: continue
         data = get(f"/storage/v1/object/public/event-images/{p}")
-        open(os.path.join(OUT, "images", p), "wb").write(data)
+        with open(os.path.join(OUT, "images", p), "wb") as f:
+            f.write(data)
     print(f"backed up {len(rows)} events")
 
 if __name__ == "__main__":

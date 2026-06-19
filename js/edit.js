@@ -1,11 +1,16 @@
 // js/edit.js
 import { supabase } from "./supabaseClient.js";
-import { SHARED_EDITOR_EMAIL } from "./config.js";
+import { SHARED_EDITOR_EMAIL, IMAGE_BUCKET } from "./config.js";
 import { ymdToMinutes, minutesToYMD } from "./dates.js";
 
 let onMode = () => {};
 
-function setMode(on) { document.body.classList.toggle("edit-mode", on); onMode(on); }
+function setMode(on) {
+  document.body.classList.toggle("edit-mode", on);
+  const lbl = document.querySelector("#lock-btn .lock-label");
+  if (lbl) lbl.textContent = on ? "Salir" : "Editar";
+  onMode(on);
+}
 
 function buildLoginModal() {
   const m = document.createElement("div");
@@ -17,12 +22,21 @@ function buildLoginModal() {
     <button id="login-go">Entrar</button></div>`;
   document.body.appendChild(m);
   m.addEventListener("click", e => { if (e.target === m) m.classList.remove("open"); });
-  m.querySelector("#login-go").addEventListener("click", async () => {
+  async function tryLogin() {
     const pass = m.querySelector("#login-pass").value;
     const { error } = await supabase.auth.signInWithPassword({ email: SHARED_EDITOR_EMAIL, password: pass });
-    if (error) { m.querySelector("#login-err").textContent = "Contraseña incorrecta"; return; }
-    m.classList.remove("open"); setMode(true);
-  });
+    if (error) {
+      const wrong = error.status === 400 || /invalid|credential/i.test(error.message || "");
+      m.querySelector("#login-err").textContent =
+        wrong ? "Contraseña incorrecta" : "Error de conexión, inténtalo de nuevo";
+      return;
+    }
+    m.querySelector("#login-pass").value = "";
+    m.classList.remove("open");
+    setMode(true);
+  }
+  m.querySelector("#login-go").addEventListener("click", tryLogin);
+  m.querySelector("#login-pass").addEventListener("keydown", e => { if (e.key === "Enter") tryLogin(); });
   return m;
 }
 
@@ -47,7 +61,7 @@ function buildEventForm() {
   return m;
 }
 
-let formEl, editingId = null;
+let formEl, editingId = null, editingOldImage = null;
 let uploadImage = async () => null;    // replaced in Task 9 via setUploader
 
 function startMinutesFromForm(m) {
@@ -62,6 +76,7 @@ function wireCrud(supabaseClient) {
 
   window.__openEventForm = (ev) => {
     editingId = ev?.id ?? null;
+    editingOldImage = ev?.image_path ?? null;
     formEl.querySelector("#ef-title").textContent = ev ? "Editar evento" : "Nuevo evento";
     formEl.querySelector("#ef-name").value = ev?.name ?? "";
     formEl.querySelector("#ef-color").value = ev?.color ?? "#0079CC";
@@ -84,6 +99,10 @@ function wireCrud(supabaseClient) {
   window.__deleteEvent = async (ev) => {
     if (!confirm(`¿Borrar "${ev.name}"?`)) return;
     await supabaseClient.from("events").delete().eq("id", ev.id);
+    if (ev.image_path) {
+      // best-effort: remove the now-orphaned image from Storage
+      await supabaseClient.storage.from(IMAGE_BUCKET).remove([ev.image_path]).catch(() => {});
+    }
     window.__reload();
   };
 
@@ -98,11 +117,15 @@ function wireCrud(supabaseClient) {
       const file = formEl.querySelector("#ef-img").files[0];
       const has_image_field = !!file;
       let image_path;
-      if (file) image_path = await uploadImage(file);   // seam for Task 9
+      if (file) image_path = await uploadImage(file);
       const payload = { name, start_minutes, color };
       if (has_image_field) payload.image_path = image_path;
       if (editingId) {
         await supabaseClient.from("events").update(payload).eq("id", editingId);
+        // a new image replaced an old one → delete the orphaned old file
+        if (has_image_field && image_path && editingOldImage && editingOldImage !== image_path) {
+          await supabaseClient.storage.from(IMAGE_BUCKET).remove([editingOldImage]).catch(() => {});
+        }
       } else {
         await supabaseClient.from("events").insert(payload);
       }
@@ -124,8 +147,8 @@ export async function initEditing({ onModeChange } = {}) {
   wireCrud(supabase);
 
   const modal = buildLoginModal();
-  document.getElementById("lock-btn").addEventListener("click", () => {
-    if (document.body.classList.contains("edit-mode")) { supabase.auth.signOut(); setMode(false); }
+  document.getElementById("lock-btn").addEventListener("click", async () => {
+    if (document.body.classList.contains("edit-mode")) { await supabase.auth.signOut(); setMode(false); }
     else modal.classList.add("open");
   });
   window.addEventListener("hashchange", () => { if (location.hash === "#editar") modal.classList.add("open"); });

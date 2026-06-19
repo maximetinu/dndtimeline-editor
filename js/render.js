@@ -177,8 +177,11 @@ export function renderTimeline(container, events) {
   end.appendChild(el("div", "", ""));
   container.appendChild(end);
 
-  // Floating "+" add button (edit-mode only)
-  const addBtn = el("button", "add-btn edit-only", "+");
+  // Floating add button (edit-mode only) — SVG plus for perfect centering
+  const addBtn = el("button", "add-btn edit-only",
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>');
+  addBtn.setAttribute("aria-label", "Añadir evento");
+  addBtn.setAttribute("title", "Añadir evento");
   addBtn.addEventListener("click", () => window.__openEventForm(null));
   container.appendChild(addBtn);
 
