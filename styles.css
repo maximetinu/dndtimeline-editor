@@ -464,11 +464,35 @@ body.edit-mode .add-btn { display: grid; }
 /* ---- Event form modal ---- */
 .event-form-modal { position: fixed; inset: 0; z-index: 1100; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.7); }
 .event-form-modal.open { display: flex; }
-.event-form { background: var(--canvas); border: 1px solid var(--border); border-radius: 14px; padding: 20px; width: min(94vw, 420px); display: flex; flex-direction: column; gap: 10px; }
-.event-form input[type="text"], .event-form input[type="date"] { padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: #0c0a12; color: var(--fg); width: 100%; }
-.event-form label { color: var(--fg); display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
-.event-form label input[type="checkbox"] { width: auto; margin-right: 6px; }
-.event-form .row2 { display: flex; gap: 8px; align-items: center; }
+.event-form { background: var(--canvas); border: 1px solid var(--border); border-radius: 16px; padding: 22px; width: min(94vw, 440px); display: flex; flex-direction: column; gap: 16px; box-shadow: 0 24px 60px rgba(0,0,0,.55); }
+.ef-head { display: flex; align-items: center; justify-content: space-between; }
+.ef-head strong { font-size: 17px; }
+.ef-x { background: none; border: none; color: var(--muted); font-size: 24px; line-height: 1; cursor: pointer; padding: 0 4px; }
+.ef-x:hover { color: var(--fg); }
+.ef-field { display: flex; flex-direction: column; gap: 6px; }
+.ef-lbl { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.ef-opt { font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--muted-dim, #8a7e67); }
+.event-form input[type="text"], .event-form input[type="date"] { padding: 10px 12px; border-radius: 9px; border: 1px solid var(--border); background: #0c0a12; color: var(--fg); width: 100%; font-size: 14px; }
+.event-form input:focus { outline: none; border-color: rgba(217,178,95,0.55); }
+.ef-daterow { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.ef-daterow #ef-date { flex: 1; min-width: 150px; }
+/* segmented d.C. / a.C. toggle */
+.ef-era { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+.ef-era label { display: inline-flex; align-items: center; padding: 8px 14px; cursor: pointer; font-size: 13px; color: var(--muted); user-select: none; }
+.ef-era label input { position: absolute; opacity: 0; pointer-events: none; }
+.ef-era label:has(input:checked) { background: rgba(217,178,95,0.22); color: var(--gold-bright, #f0d18a); font-weight: 700; }
+.ef-hint { margin: 0; font-size: 11.5px; color: var(--muted-dim, #8a7e67); line-height: 1.4; }
+.ef-field-row { display: flex; gap: 16px; align-items: flex-start; }
+.ef-color-field { flex: 0 0 auto; }
+.ef-color-field input[type="color"] { width: 48px; height: 40px; padding: 2px; border: 1px solid var(--border); border-radius: 9px; background: #0c0a12; cursor: pointer; }
+.ef-img-field { flex: 1; min-width: 0; }
+.ef-file { display: flex; align-items: center; justify-content: center; padding: 10px 12px; border: 1px dashed var(--border); border-radius: 9px; color: var(--muted); cursor: pointer; font-size: 13px; background: #0c0a12; }
+.ef-file:hover { color: var(--fg); border-color: rgba(217,178,95,0.5); }
+#ef-file-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ef-preview img { max-height: 130px; max-width: 100%; border-radius: 10px; display: block; border: 1px solid var(--border); }
 .event-form .err { color: #f87171; font-size: 12px; min-height: 14px; }
-.event-form button { padding: 9px 18px; border-radius: 8px; border: 1px solid var(--border); background: var(--canvas); color: var(--fg); cursor: pointer; font-size: 14px; }
-.event-form button:hover { background: var(--card-surface); }
+.ef-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 2px; }
+.btn-primary { padding: 10px 20px; border-radius: 9px; border: none; background: var(--gold, #d9b25f); color: #1a1407; font-weight: 700; font-size: 14px; cursor: pointer; }
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-secondary { padding: 10px 18px; border-radius: 9px; border: 1px solid var(--border); background: transparent; color: var(--fg); font-size: 14px; cursor: pointer; }
+.btn-secondary:hover { background: var(--card-surface); }

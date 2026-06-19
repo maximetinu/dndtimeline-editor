@@ -19,7 +19,7 @@ function buildLoginModal() {
     <strong>Editar la cronología</strong>
     <input id="login-pass" type="password" placeholder="Contraseña de campaña" autocomplete="current-password"/>
     <div class="err" id="login-err"></div>
-    <button id="login-go">Entrar</button></div>`;
+    <button id="login-go" class="btn-primary">Entrar</button></div>`;
   document.body.appendChild(m);
   m.addEventListener("click", e => { if (e.target === m) m.classList.remove("open"); });
   async function tryLogin() {
@@ -46,33 +46,86 @@ function buildEventForm() {
   const m = document.createElement("div");
   m.className = "event-form-modal";
   m.innerHTML = `<div class="event-form">
-    <strong id="ef-title">Nuevo evento</strong>
-    <input id="ef-name" type="text" placeholder="Nombre del evento"/>
-    <label>Fecha <input id="ef-date" type="date"/></label>
-    <label><input id="ef-bce" type="checkbox"/> Antes de Cristo (BCE)</label>
-    <div class="row2"><input id="ef-color" type="color" value="#0079CC"/>
-      <input id="ef-img" type="file" accept="image/*"/></div>
+    <div class="ef-head">
+      <strong id="ef-title">Nuevo evento</strong>
+      <button id="ef-close" class="ef-x" aria-label="Cerrar" title="Cerrar">&times;</button>
+    </div>
+
+    <div class="ef-field">
+      <label class="ef-lbl" for="ef-name">Nombre</label>
+      <input id="ef-name" type="text" placeholder="Ej. Nace Cyro"/>
+    </div>
+
+    <div class="ef-field">
+      <label class="ef-lbl" for="ef-date">Fecha</label>
+      <div class="ef-daterow">
+        <input id="ef-date" type="date"/>
+        <div class="ef-era" role="radiogroup" aria-label="Era">
+          <label><input type="radio" name="ef-era" value="ce" checked/><span>d.C.</span></label>
+          <label><input type="radio" name="ef-era" value="bce"/><span>a.C.</span></label>
+        </div>
+      </div>
+      <p class="ef-hint">Elige «a.C.» solo para fechas antes de Cristo (eventos muy antiguos).</p>
+    </div>
+
+    <div class="ef-field-row">
+      <div class="ef-field ef-color-field">
+        <label class="ef-lbl" for="ef-color">Color</label>
+        <input id="ef-color" type="color" value="#0079CC"/>
+      </div>
+      <div class="ef-field ef-img-field">
+        <label class="ef-lbl">Imagen <span class="ef-opt">(opcional)</span></label>
+        <label class="ef-file" for="ef-img"><span id="ef-file-name">Elegir imagen…</span></label>
+        <input id="ef-img" type="file" accept="image/*" hidden/>
+      </div>
+    </div>
+
+    <div class="ef-preview" id="ef-preview" hidden><img id="ef-preview-img" alt="Vista previa"/></div>
+
     <div class="err" id="ef-err"></div>
-    <div class="row2"><button id="ef-save">Guardar</button><button id="ef-cancel">Cancelar</button></div>
+
+    <div class="ef-actions">
+      <button id="ef-cancel" class="btn-secondary">Cancelar</button>
+      <button id="ef-save" class="btn-primary">Guardar</button>
+    </div>
   </div>`;
   document.body.appendChild(m);
-  m.addEventListener("click", e => { if (e.target === m) m.classList.remove("open"); });
-  m.querySelector("#ef-cancel").addEventListener("click", () => m.classList.remove("open"));
+
+  const close = () => m.classList.remove("open");
+  m.addEventListener("click", e => { if (e.target === m) close(); });
+  m.querySelector("#ef-close").addEventListener("click", close);
+  m.querySelector("#ef-cancel").addEventListener("click", close);
+
+  // file picker → filename label + live preview
+  const fileName = m.querySelector("#ef-file-name");
+  const preview = m.querySelector("#ef-preview");
+  const previewImg = m.querySelector("#ef-preview-img");
+  m.querySelector("#ef-img").addEventListener("change", (ev) => {
+    const f = ev.target.files[0];
+    fileName.textContent = f ? f.name : "Elegir imagen…";
+    if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
+    if (f) { previewUrl = URL.createObjectURL(f); previewImg.src = previewUrl; preview.hidden = false; }
+    else { preview.hidden = true; previewImg.removeAttribute("src"); }
+  });
   return m;
 }
 
-let formEl, editingId = null, editingOldImage = null;
+let formEl, editingId = null, editingOldImage = null, previewUrl = null;
 let uploadImage = async () => null;    // replaced in Task 9 via setUploader
 
 function startMinutesFromForm(m) {
   const v = m.querySelector("#ef-date").value;            // "YYYY-MM-DD"
   const [y, mo, d] = v.split("-").map(Number);
-  const year = m.querySelector("#ef-bce").checked ? 1 - y : y; // BCE → astronomical
+  const bce = m.querySelector('input[name="ef-era"]:checked')?.value === "bce";
+  const year = bce ? 1 - y : y;                            // BCE → astronomical
   return ymdToMinutes(year, mo, d);
 }
 
 function wireCrud(supabaseClient) {
   formEl = buildEventForm();
+  const fileName = formEl.querySelector("#ef-file-name");
+  const preview = formEl.querySelector("#ef-preview");
+  const previewImg = formEl.querySelector("#ef-preview-img");
 
   window.__openEventForm = (ev) => {
     editingId = ev?.id ?? null;
@@ -82,17 +135,25 @@ function wireCrud(supabaseClient) {
     formEl.querySelector("#ef-color").value = ev?.color ?? "#0079CC";
     formEl.querySelector("#ef-err").textContent = "";
     formEl.querySelector("#ef-img").value = "";
+    fileName.textContent = "Elegir imagen…";
+    if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
+
+    let bce = false;
     if (ev) {
       const { year, month, day } = minutesToYMD(ev.start_minutes);
-      const bce = year <= 0;
-      formEl.querySelector("#ef-bce").checked = bce;
+      bce = year <= 0;
       const yy = String(bce ? 1 - year : year).padStart(4, "0");
       formEl.querySelector("#ef-date").value =
         `${yy}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
     } else {
       formEl.querySelector("#ef-date").value = "";
-      formEl.querySelector("#ef-bce").checked = false;
     }
+    formEl.querySelector(`input[name="ef-era"][value="${bce ? "bce" : "ce"}"]`).checked = true;
+
+    // show existing image (when editing) as preview
+    if (ev?.imageUrl) { previewImg.src = ev.imageUrl; preview.hidden = false; }
+    else { preview.hidden = true; previewImg.removeAttribute("src"); }
+
     formEl.classList.add("open");
   };
 
@@ -122,13 +183,13 @@ function wireCrud(supabaseClient) {
       if (has_image_field) payload.image_path = image_path;
       if (editingId) {
         await supabaseClient.from("events").update(payload).eq("id", editingId);
-        // a new image replaced an old one → delete the orphaned old file
         if (has_image_field && image_path && editingOldImage && editingOldImage !== image_path) {
           await supabaseClient.storage.from(IMAGE_BUCKET).remove([editingOldImage]).catch(() => {});
         }
       } else {
         await supabaseClient.from("events").insert(payload);
       }
+      if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
       formEl.classList.remove("open");
       window.__reload();
     } catch (e) {
