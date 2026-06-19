@@ -2,3 +2,5 @@
 .DS_Store
 node_modules/
 data/source-export.json
+__pycache__/
+*.pyc
