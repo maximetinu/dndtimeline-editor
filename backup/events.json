@@ -1,23 +1,5 @@
 [
   {
-    "id": "fc9a36b5-9156-4931-b1df-8bd8d4a32b4c",
-    "name": "wewrewr",
-    "start_minutes": -788397513,
-    "color": "#0079CC",
-    "image_path": null,
-    "sort_order": 0,
-    "created_at": "2026-06-18T23:26:35.551934+00:00"
-  },
-  {
-    "id": "f3cb47bf-110b-482f-be3d-f03188d4beb5",
-    "name": "Zephiel es condenada al olvido por Pholtus",
-    "start_minutes": -788312553,
-    "color": "#0079CC",
-    "image_path": null,
-    "sort_order": 1,
-    "created_at": "2026-06-18T23:26:35.664434+00:00"
-  },
-  {
     "id": "56885469-e946-4b08-9507-d6bd47012f02",
     "name": "Nace Zephiel",
     "start_minutes": 649546560,
@@ -435,7 +417,7 @@
     "id": "6cadf0d1-2870-4342-a04a-657a5d35e9fa",
     "name": "Tharic realiza un pacto con Glassya. El grupo sale del averno",
     "start_minutes": 788222880,
-    "color": "#0079CC",
+    "color": "#ff4015",
     "image_path": "h4mcqwoo.png",
     "sort_order": 48,
     "created_at": "2026-06-18T23:26:52.204867+00:00"
@@ -453,7 +435,7 @@
     "id": "700ef507-16f8-45ff-ad78-0575ce70e931",
     "name": "El grupo llega a Ashabenford. Derrotan a los drow del bosque",
     "start_minutes": 788231520,
-    "color": "#0079CC",
+    "color": "#d357fe",
     "image_path": "izzru2fx.png",
     "sort_order": 50,
     "created_at": "2026-06-18T23:26:53.064381+00:00"
